@@ -46,6 +46,24 @@ def student_add():
                            last=last,
                            github=github)
 
+
+@app.route("/project/<title>")
+def list_project(title):
+    """Displays project title along with description and its maximum grade."""
+
+    row = hackbright.get_project_by_title(title)
+    return render_template("project_info.html",
+                           row=row)
+
+# @app.route("/project")
+# def list_project():
+#     """Displays project title along with description and its maximum grade."""
+
+#     title = request.args.get('title')
+#     row = hackbright.get_project_by_title(title)
+#     return render_template("project_info.html",
+#                            row=row)
+
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
     app.run(debug=True)

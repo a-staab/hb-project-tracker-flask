@@ -11,7 +11,9 @@
 
 <ul>
 {% for row in rows %}
-<li>Project Title: {{ row[0] }}  //  Grade: {{ row[1] }}</li>
+<li>Project Title: <a href="/project?title={{ row[0] }}">{{ row[0] }}</a>
+<br>
+Grade: {{ row[1] }}</li>
 {% endfor %}
 </ul>
 
